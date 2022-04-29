@@ -1,0 +1,10 @@
+{
+    "nombre": "Api full",
+    "configDB":{
+        "HOST":"mongodb+srv://monitoreo:monitoreo123@cluster0.bqgq8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    },
+    "configToken":{
+        "SEED":"julioverne",
+        "expiration": "24h"
+    }
+}
