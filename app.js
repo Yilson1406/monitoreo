@@ -4,8 +4,11 @@ const app = express()
 const config = require('config');
 const port = 3100
 const cors = require('cors');
+const { dbConnection } = require('./db/config');
+require('dotenv').config();
 
-
+// Base de datos
+dbConnection();
 
 ///rutas
 
@@ -23,11 +26,11 @@ app.use('/api/monitoreo',rutas);
 app.use('/api/auth',auth);
 //conexion a base de datos
 
-mongoose.connect(config.get('configDB.HOST'),{useNewUrlParser:true, useUnifiedTopology: true})
-    .then(()=>{
-        console.log('Api Conectado a la base de datos con éxito');})
-    .catch(error=>{
-        console.log('Error al conectarse a la base de datos', error);
-    });
+// mongoose.connect(config.get('configDB.HOST'),{useNewUrlParser:true, useUnifiedTopology: true})
+//     .then(()=>{
+//         console.log('Api Conectado a la base de datos con éxito');})
+//     .catch(error=>{
+//         console.log('Error al conectarse a la base de datos', error);
+//     });
 
 app.listen(port, () => console.log(`ejecutando api ${port}!`))
