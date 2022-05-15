@@ -2,7 +2,7 @@
 const  express = require('express')
 const  mongoose  = require('mongoose')
 const app = express()
-const path = require('path');
+
 const config = require('config');
 const port = 3100
 const cors = require('cors');
@@ -26,9 +26,7 @@ app.use(cors())
 
 app.use('/api/monitoreo',rutas);
 app.use('/api/auth',auth);
-app.get('*',(req,res)=>{
-    res.sendFile(path.resolve( __dirname, 'app.js'));
-});
+
 //conexion a base de datos
 
 // mongoose.connect(config.get('configDB.HOST'),{useNewUrlParser:true, useUnifiedTopology: true})
